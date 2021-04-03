@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyC-PuOtESBk11EoXTp9qnnMSZA8ivrjoEo',
+    authDomain: 'novel-reader-5769d.firebaseapp.com',
+    databaseURL: 'https://novel-reader-5769d.firebaseio.com',
+    projectId: 'novel-reader-5769d',
+    storageBucket: 'novel-reader-5769d.appspot.com',
+    messagingSenderId: '343964099503',
+    appId: '1:343964099503:web:a806f81b9b1362d9f8c55a',
+    measurementId: 'G-1Y284D3V37',
+  },
+  novelBackendConfig: {
+    url: 'http://192.168.1.183:3000',
+  }
 };
 
 /*

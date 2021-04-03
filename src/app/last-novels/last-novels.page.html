@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>last-novels</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let novel of lastNovels">
+    <ion-card-header>
+      <img src="data:{{novel.cover.type}};base64,{{novel.cover.data}}" />
+      <ion-card-title>{{novel.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content> {{novel.description}} </ion-card-content>
+    <ion-card-content>
+      <ion-card-subtitle color="tertiary">Last Chapter:</ion-card-subtitle>
+      <ion-button (click)="openChapter(novel)" size="small" class="normal-button">
+        {{novel.lastChapterTitle}}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

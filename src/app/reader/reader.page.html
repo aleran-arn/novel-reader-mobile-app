@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ng-container *ngIf="chapter">
+      <ion-title size="small">{{chapter.title}}</ion-title>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ng-container *ngIf="chapter">
+  <ion-content on-swipe="swipeEvent($event)">
+    <ion-row>
+      <ion-col class="ion-text-end">
+        <ion-button
+          (click)="openChapter(chapter.prevChapterId)"
+          [disabled]="chapter.prevChapterId == null"
+          >Previous</ion-button
+        >
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <ion-button
+          (click)="openChapter(chapter.nextChapterId)"
+          [disabled]="chapter.nextChapterId == null"
+          >Next</ion-button
+        >
+      </ion-col>
+    </ion-row>
+    <div class="chapter-content">
+      <p *ngFor="let row of chapter.contents">
+        {{row}}
+      </p>
+    </div>
+    <ion-row>
+      <ion-col class="ion-text-end">
+        <ion-button
+          (click)="openChapter(chapter.prevChapterId)"
+          [disabled]="chapter.prevChapterId == null"
+          >Previous</ion-button
+        >
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <ion-button
+          (click)="openChapter(chapter.nextChapterId)"
+          [disabled]="chapter.nextChapterId == null"
+          >Next</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</ng-container>
