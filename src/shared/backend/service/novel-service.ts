@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Novel } from 'src/shared/model/Novel';
 import { environment } from 'src/environments/environment';
-import { NovelCover } from '../../model/novel';
+import { Novel } from 'src/shared/model/Novel';
 
 @Injectable({
   providedIn: 'root',

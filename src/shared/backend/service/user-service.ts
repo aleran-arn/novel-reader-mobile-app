@@ -35,13 +35,14 @@ export class UserService {
           throw new Error(resp['error']);
         }
         const novelList = resp['data'];
-        return novelList.map(this.parseNovel);
+        return novelList.map(UserService.parseNovel);
       }));
   }
 
-  private parseNovel(novel: any): UserNovel {
+  private static parseNovel(novel: any): UserNovel {
     return {
-      novelId: novel.novelId, title: novel.title, description: novel.description, coverHref: novel.coverHref,
+      novelId: novel.novelId, title: novel.title, description: novel.description,
+      cover: {type: novel.cover.type, data: novel.cover.data},
       lastReadedChapterId: novel.lastReadedChapterId, lastReadedChapterTitle: novel.lastReadedChapterTitle,
       lastChapterId: novel.lastChapterId, lastChapterTitle: novel.lastChapterTitle
     };

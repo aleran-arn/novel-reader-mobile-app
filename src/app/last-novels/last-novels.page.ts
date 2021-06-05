@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Novel } from 'src/shared/model/Novel';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NovelService } from 'src/shared/backend/service/novel-service';
+import {Novel} from "../../shared/model/Novel";
 
 @Component({
   selector: 'app-last-novels',

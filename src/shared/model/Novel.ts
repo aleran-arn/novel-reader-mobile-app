@@ -1,3 +1,5 @@
+import { NovelCover } from './novelcover';
+
 export interface Novel {
   novelId: string;
   title: string;
@@ -5,9 +7,4 @@ export interface Novel {
   cover: NovelCover;
   lastChapterId: string;
   lastChapterTitle: string;
-}
-
-export interface NovelCover {
-  type: string,
-  data: string
 }
