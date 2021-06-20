@@ -26,14 +26,25 @@ export class NovelService {
           throw new Error(resp['error']);
         }
         const novelList = resp['data'];
-        return novelList.map(this.parseNovel);
+        return novelList.map(NovelService.parseNovel);
       }));
   }
 
-  private parseNovel(novel: any): Novel {
+  private static parseNovel(novel: any): Novel {
     return {
-        novelId: novel.novelId, title: novel.title, description: novel.description, cover: { type: novel.coverImage.contentType, data: novel.coverImage.data },
+        novelId: novel.novelId, title: novel.title, description: novel.description,
+        cover: { type: novel.coverImage.contentType, data: NovelService.arrayBufferToBase64(novel.coverImage.data) },
         lastChapterId: novel.lastChapterId, lastChapterTitle: novel.lastChapterTitle
     };
-  }
+    }
+
+    private static arrayBufferToBase64(buf: any): string {
+      var binary = '';
+      var bytes = buf.data
+      var len = bytes.length;
+      for (var i = 0; i < len; i++) {
+          binary += String.fromCharCode( bytes[ i ] );
+      }
+      return window.btoa( binary );
+    }
 }
